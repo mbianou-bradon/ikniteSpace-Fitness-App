@@ -6,18 +6,22 @@ export default function Exercise(){
     return(
         <View style={styles.exerciseContainer}>
             <View>
-           
                 <View style={styles.exercisePreview}>
 
-                </View>
-                <View style={styles.exerciseDescriptionContainer}>
-                    <Text style={styles.exerciseTitle}>Title</Text>
-                    <Text style={styles.exerciseDescription}>Description</Text>
-                </View>
-                 
+                </View>                 
             </View>
             <View>
-                <View></View>
+                <View style={styles.exerciseDescriptionContainer}>
+                    <Text style={styles.exerciseTitle}>Title</Text>
+        
+                </View>
+                <View style={styles.exerciseDurationContainer}>
+                    <Text style={styles.exerciseDuration}>00:30</Text>
+        
+                </View>
+
+            </View>
+            <View>
 
                 <View style={styles.closeExerciseViewButtonContainer}>
                     <Pressable style={styles.closeExerciseButton}>
@@ -43,7 +47,9 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     exerciseDescriptionContainer: {
-        marginVertical: 20,
+        marginVertical: 40,
+        justifyContent: "center",
+        alignItems: "center",
     },
     exerciseTitle: {
         fontSize: 25,
@@ -53,8 +59,19 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginVertical: 12,
     },
+    exerciseDurationContainer: {
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    exerciseDuration: {
+        fontSize: 75,
+        color: "black",
+    },
     closeExerciseViewButtonContainer: {
-        marginVertical: 10,
+        borderTopWidth: 2,
+        borderColor: "#ccc",
+        paddingTop: 10,
+        marginTop: 10,
         alignItems: "center",
         justifyContent: "center",
     },

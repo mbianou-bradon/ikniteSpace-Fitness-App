@@ -6,20 +6,12 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
-  useColorScheme,
   View,
 } from 'react-native';
-import Home from './src/screens/Home';
-import WorkoutCategories from './src/screens/WorkoutCategories';
-import Categories from './src/screens/Categories';
-import ExerciseDetails from './src/screens/ExerciseDetails';
 import Exercise from './src/screens/Exercise';
 
 
