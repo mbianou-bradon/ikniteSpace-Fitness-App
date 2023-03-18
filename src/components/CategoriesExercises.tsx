@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-export default function CategoriesExercises() {
+export default function CategoriesExercises({ navigation }) {
 
     return (
-        <TouchableOpacity style={styles.categoriesExerciseContainer}>
+        <TouchableOpacity style={styles.categoriesExerciseContainer} onPress={()=> navigation.navigate("")}>
             <View style={styles.categoriesExerciseImageContainer}></View>
             <View style={styles.categoriesExerciseDetailContainer}>
                 <Text style={{fontSize: 20, fontWeight:"bold"}}> 30 Days Challenge</Text>

@@ -2,7 +2,7 @@ import React from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import CategoriesOverview from "../components/CategoriesOverview";
 
-export default function workoutCategories(){
+export default function WorkoutCategories(){
 
     return (
         <View style={styles.categoriesContainer}>
