@@ -16,15 +16,39 @@ import {
 import WorkoutCategories from "./src/screens/WorkoutCategories"
 import Categories from './src/screens/Categories';
 import Exercise from './src/screens/Exercise';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import ExerciseDetails from './src/screens/ExerciseDetails';
 
-export type StackParams = {
-  Categories_Overview: any;
-  Categories: any;
-  Exercise: any;
+// Different Stack Params Definitions
+export type RootStackParams = {
+  Training: CategoriesStackParams;
+  Discover: any;
+  Report: any;
+  Settings: any;
 }
 
+export type CategoriesStackParams = {
+  Categories: any;
+  Exercise: any;
+  "Exercise Details": any;
+}
 
-const CategoriesStack = createNativeStackNavigator<StackParams>()
+// Different Stacks
+const CategoriesStack = createNativeStackNavigator<CategoriesStackParams>()
+
+const RootStack = createBottomTabNavigator<RootStackParams>()
+
+const  CategoriesStackRoute = (): JSX.Element => {
+
+  return (
+    <CategoriesStack.Navigator initialRouteName='Categories'>
+      <CategoriesStack.Screen name={"Categories"} component={Categories} />
+      <CategoriesStack.Screen name={"Exercise"} component={Exercise}/>
+      <CategoriesStack.Screen name={"Exercise Details"} component={ExerciseDetails} />
+    </CategoriesStack.Navigator>
+  )
+}
+
 
 function App(): JSX.Element {
   
@@ -32,11 +56,12 @@ function App(): JSX.Element {
   return (
     <NavigationContainer>
         <StatusBar />
-        <CategoriesStack.Navigator initialRouteName="Categories_Overview">
-          <CategoriesStack.Screen name="Categories_Overview" component={WorkoutCategories} />
-          <CategoriesStack.Screen name="Categories" component={Categories} />
-          <CategoriesStack.Screen name="Exercise" component={Exercise} />
-        </CategoriesStack.Navigator>
+        <RootStack.Navigator initialRouteName="Training">
+          <RootStack.Screen name="Training" component={WorkoutCategories} />
+          <RootStack.Screen name="Discover" component={CategoriesStackRoute} />
+          <RootStack.Screen name="Report" component={Exercise} />
+          <RootStack.Screen name="Settings" component={Exercise} />
+        </RootStack.Navigator>
     </NavigationContainer>
   );
 }

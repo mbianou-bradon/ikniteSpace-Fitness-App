@@ -2,14 +2,14 @@ import { useNavigation } from "@react-navigation/core";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { StackParams } from "../../App";
+import { CategoriesStackParams } from "../../App";
 
 export default function CategoriesExercises() {
 
-    const navigation = useNavigation<NativeStackNavigationProp<StackParams>>()
+    const navigation = useNavigation<NativeStackNavigationProp<CategoriesStackParams>>()
 
     return (
-        <TouchableOpacity style={styles.categoriesExerciseContainer} onPress={()=> navigation.navigate('Exercise')}>
+        <TouchableOpacity style={styles.categoriesExerciseContainer} onPress={()=> navigation.navigate('Exercise Details')}>
             <View style={styles.categoriesExerciseImageContainer}></View>
             <View style={styles.categoriesExerciseDetailContainer}>
                 <Text style={{fontSize: 20, fontWeight:"bold"}}> 30 Days Challenge</Text>

@@ -1,8 +1,13 @@
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { CategoriesStackParams } from "../../App";
 import CategoriesExercises from "../components/CategoriesExercises";
 
 export default function Categories(){
+
+    const navigation = useNavigation<NativeStackNavigationProp<CategoriesStackParams>>()
 
     return (
         <View style={styles.categoriesMainContainer}>
@@ -33,7 +38,7 @@ export default function Categories(){
             </ScrollView>
 
             <View style={styles.startExerciseButtonContainer}>
-                <Pressable style={styles.startExerciseButton}>
+                <Pressable style={styles.startExerciseButton} onPress={()=> navigation.navigate('Exercise')}>
                     <View>
                         <Text style={styles.startExerciseButtonText}>Start</Text>
                     </View>
