@@ -1,10 +1,15 @@
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { StackParams } from "../../App";
 
 export default function CategoriesOverview() {
 
+    const navigation = useNavigation<NativeStackNavigationProp<StackParams>>()
+
     return (
-        <TouchableOpacity style={styles.categoriesOverviewContainer}>
+        <TouchableOpacity style={styles.categoriesOverviewContainer} onPress={()=> navigation.navigate('Categories')}>
             <View style={styles.categoriesOverviewImageContainer}></View>
             <View style={styles.categoriesOverviewDetailContainer}>
                 <Text style={{fontSize: 20, fontWeight:"bold"}}> 30 Days Challenge</Text>

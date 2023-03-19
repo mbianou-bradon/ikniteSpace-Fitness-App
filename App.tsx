@@ -9,32 +9,34 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import {
-  SafeAreaView,
   StatusBar,
   StyleSheet,
-  View,
 } from 'react-native';
 
 import WorkoutCategories from "./src/screens/WorkoutCategories"
 import Categories from './src/screens/Categories';
 import Exercise from './src/screens/Exercise';
 
+export type StackParams = {
+  Categories_Overview: any;
+  Categories: any;
+  Exercise: any;
+}
 
-const Stack = createNativeStackNavigator()
+
+const CategoriesStack = createNativeStackNavigator<StackParams>()
 
 function App(): JSX.Element {
   
 
   return (
     <NavigationContainer>
-      <SafeAreaView >
         <StatusBar />
-        <Stack.Navigator initialRouteName="Categories_Overview">
-          <Stack.Screen name="Categories_Overview" component={WorkoutCategories} />
-          <Stack.Screen name="Categories" component={Categories} />
-          <Stack.Screen name="Exercise" component={Exercise} />
-        </Stack.Navigator>
-      </SafeAreaView>
+        <CategoriesStack.Navigator initialRouteName="Categories_Overview">
+          <CategoriesStack.Screen name="Categories_Overview" component={WorkoutCategories} />
+          <CategoriesStack.Screen name="Categories" component={Categories} />
+          <CategoriesStack.Screen name="Exercise" component={Exercise} />
+        </CategoriesStack.Navigator>
     </NavigationContainer>
   );
 }
