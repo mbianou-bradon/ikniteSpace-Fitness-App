@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "473644823661",
+    "project_id": "iknite-fitness-app",
+    "storage_bucket": "iknite-fitness-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473644823661:android:dcf281b90db6744c68bb64",
+        "android_client_info": {
+          "package_name": "com.fitnessmobileapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473644823661-ijg7m70gct71568t57vuelnlp4d2ene3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQVu337uIAItEe-GybcCEfK1kcVTHQ8PY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473644823661-ijg7m70gct71568t57vuelnlp4d2ene3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
