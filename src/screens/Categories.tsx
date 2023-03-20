@@ -15,13 +15,9 @@ import {
 } from 'react-native';
 import {CategoriesStackParams} from '../../App';
 import CategoriesExercises from '../components/CategoriesExercises';
-
-import {exerciseData} from '../data/exerciseData';
 import {workoutCategoriesData} from '../data/workoutCategoriesData';
 
-const exercise = exerciseData.filter(exer => exer.category === 'ABDOMEN');
 
-type Props = NativeStackScreenProps<CategoriesStackParams, 'Categories'>;
 
 const Categories = ({route}: any) => {
   const navigation =
@@ -59,6 +55,7 @@ const Categories = ({route}: any) => {
                 restTime={item.restTime}
                 duration={item.duration}
               />
+
             )}
           />
 

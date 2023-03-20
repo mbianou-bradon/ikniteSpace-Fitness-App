@@ -13,33 +13,30 @@ export default function Exercise({ route }: any){
     const { exercisePlaylist } = route.params;
     // console.warn(exercisePlaylist)
     
-    const [playlist, setPlaylist] = React.useState(exercisePlaylist)
+    const [playlist, setPlaylist] = React.useState<exerciseType[]>(exercisePlaylist)
     const [currentExercise, setCurrentExercise] = React.useState<exerciseType>(exercisePlaylist[0]);
-    const [duration, setDuration] = React.useState<number>(0);
+    const [duration, setDuration] = React.useState<number>(currentExercise.duration || 10);
     const [restTime, setRestTime] = React.useState<number>(0);
-    const [isStart, setIsStart] = React.useState<boolean>(false)
-
-    // console.warn(exercisePlaylist.length)
-
-   const handleStart = () => setIsStart(prevState => !prevState)
-
-    const handleDuration = () => {
-        setDuration(preDuration => preDuration -1)
-    }
+    // const [isStart, setIsStart] = React.useState<boolean>(false)
 
 
-    React.useEffect(()=> {
-        setDuration(preDuration => preDuration = currentExercise.duration)
-        setTimeout(()=>{
-            if(duration >= 0){
-                handleDuration
+
+    const handleStart = () =>{
+        const interval = setInterval(()=>{
+            setDuration(preDuration => preDuration = currentExercise.duration)
+            setDuration((duration) => {
+            if(duration === 0){
+                clearInterval(interval)
             }
-        }, 1000)
-    },[duration, isStart])
+            if(duration <= 5){
+                
+            }
+            return duration - 1;
+        })
+        },1000)
         
-
-
-    // setInterval(startExercise, 2000);
+        
+    }
 
     return(
         <View style={styles.exerciseContainer}>
