@@ -4,7 +4,7 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { CategoriesStackParams } from "../../App";
 
-export default function CategoriesOverview() {
+export default function CategoriesOverview({item}) {
 
     const navigation = useNavigation<NativeStackNavigationProp<CategoriesStackParams>>()
 

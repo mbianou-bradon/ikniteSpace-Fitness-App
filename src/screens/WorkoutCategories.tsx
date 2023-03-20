@@ -1,8 +1,11 @@
 import React from "react";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { FlatList, Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import CategoriesOverview from "../components/CategoriesOverview";
+import { useAppSelector } from "../redux/hooks";
 
 export default function WorkoutCategories(){
+
+    const workoutCategories = useAppSelector(state => state.workoutCategoriesreducer.todos)
 
     return (
         <View style={styles.categoriesContainer}>
@@ -17,11 +20,12 @@ export default function WorkoutCategories(){
                     <Text style={styles.categoriesOptionsHeaderMore}>View All</Text>
                 </View>
 
+                {/* <CategoriesOverview/>
                 <CategoriesOverview/>
                 <CategoriesOverview/>
                 <CategoriesOverview/>
-                <CategoriesOverview/>
-                <CategoriesOverview/>
+                <CategoriesOverview/> */}
+                <FlatList data={workoutCategories} renderItem={({item})=> <CategoriesOverview item={item}/>}/>
 
                 <View style={{height:50}}></View>
             </ScrollView>

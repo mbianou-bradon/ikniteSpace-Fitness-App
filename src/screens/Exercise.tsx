@@ -1,7 +1,12 @@
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { CategoriesStackParams } from "../../App";
 
 
 export default function Exercise(){
+
+    const navigation = useNavigation<NativeStackNavigationProp<CategoriesStackParams>>()
 
     return(
         <View style={styles.exerciseContainer}>
@@ -24,7 +29,7 @@ export default function Exercise(){
             <View>
 
                 <View style={styles.closeExerciseViewButtonContainer}>
-                    <Pressable style={styles.closeExerciseButton}>
+                    <Pressable style={styles.closeExerciseButton} onPress={()=> navigation.goBack()}>
                         <View>
                             <Text style={styles.closeExerciseButtonText}>Close</Text>
                         </View>

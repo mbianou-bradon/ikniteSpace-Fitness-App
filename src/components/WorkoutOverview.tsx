@@ -1,11 +1,15 @@
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { CategoriesStackParams } from "../../App";
 
 
 export default function WorkoutOverview(){
+    const navigation = useNavigation<NativeStackNavigationProp<CategoriesStackParams>>()
 
     return(
-        <TouchableOpacity style={styles.workoutContainer}>
+        <TouchableOpacity style={styles.workoutContainer} onPress={()=> navigation.navigate("WorkoutCategories")}>
             <View >
                 <Text style={styles.workoutHeader}>Home-Workout</Text>
                 <View style={styles.workoutDetailsContainer}>
