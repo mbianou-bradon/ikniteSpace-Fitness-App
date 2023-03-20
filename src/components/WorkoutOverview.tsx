@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         height: 200,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "orange",
+        backgroundColor: "#ff4f5b",
         borderRadius: 30,
     },
     workoutHeader: {

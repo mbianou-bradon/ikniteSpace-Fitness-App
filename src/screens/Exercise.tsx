@@ -1,12 +1,45 @@
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { current } from "@reduxjs/toolkit";
+import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { CategoriesStackParams } from "../../App";
+import { exerciseType } from "../../dataTypes";
 
 
-export default function Exercise(){
-
+export default function Exercise({ route }: any){
     const navigation = useNavigation<NativeStackNavigationProp<CategoriesStackParams>>()
+
+    const { exercisePlaylist } = route.params;
+    // console.warn(exercisePlaylist)
+    
+    const [playlist, setPlaylist] = React.useState(exercisePlaylist)
+    const [currentExercise, setCurrentExercise] = React.useState<exerciseType>(exercisePlaylist[0]);
+    const [duration, setDuration] = React.useState<number>(0);
+    const [restTime, setRestTime] = React.useState<number>(0);
+    const [isStart, setIsStart] = React.useState<boolean>(false)
+
+    // console.warn(exercisePlaylist.length)
+
+   const handleStart = () => setIsStart(prevState => !prevState)
+
+    const handleDuration = () => {
+        setDuration(preDuration => preDuration -1)
+    }
+
+
+    React.useEffect(()=> {
+        setDuration(preDuration => preDuration = currentExercise.duration)
+        setTimeout(()=>{
+            if(duration >= 0){
+                handleDuration
+            }
+        }, 1000)
+    },[duration, isStart])
+        
+
+
+    // setInterval(startExercise, 2000);
 
     return(
         <View style={styles.exerciseContainer}>
@@ -17,11 +50,11 @@ export default function Exercise(){
             </View>
             <View>
                 <View style={styles.exerciseDescriptionContainer}>
-                    <Text style={styles.exerciseTitle}>Title</Text>
+                    <Text style={styles.exerciseTitle}>{currentExercise.title}</Text>
         
                 </View>
                 <View style={styles.exerciseDurationContainer}>
-                    <Text style={styles.exerciseDuration}>00:30</Text>
+                    <Text style={styles.exerciseDuration}>{duration}</Text>
         
                 </View>
 
@@ -32,6 +65,12 @@ export default function Exercise(){
                     <Pressable style={styles.closeExerciseButton} onPress={()=> navigation.goBack()}>
                         <View>
                             <Text style={styles.closeExerciseButtonText}>Close</Text>
+                        </View>
+                    </Pressable>
+
+                    <Pressable style={styles.closeExerciseButtonStart}  onPress={handleStart}>
+                        <View>
+                            <Text style={styles.closeExerciseButtonText}>Begin</Text>
                         </View>
                     </Pressable>
                 </View>
@@ -48,11 +87,12 @@ const styles = StyleSheet.create({
     },
     exercisePreview: {
         height: 350,
-        backgroundColor: "pink",
+        backgroundColor: "#ff4f5b",
         borderRadius: 10,
     },
     exerciseDescriptionContainer: {
-        marginVertical: 40,
+        marginTop: 40,
+        marginBottom: 20,
         justifyContent: "center",
         alignItems: "center",
     },
@@ -70,7 +110,7 @@ const styles = StyleSheet.create({
     },
     exerciseDuration: {
         fontSize: 75,
-        color: "black",
+        color: "#27244e",
     },
     closeExerciseViewButtonContainer: {
         borderTopWidth: 2,
@@ -78,16 +118,25 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         marginTop: 10,
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "space-between",
+        flexDirection:"row",
     },
     closeExerciseButton: {
-        backgroundColor: "blue",
+        backgroundColor: "#27244e",
         height: 50,
-        width: "65%",
+        width: "45%",
         borderRadius: 30,
         alignItems: "center",
         justifyContent: "center"
 
+    },
+    closeExerciseButtonStart:{
+        backgroundColor: "green",
+        height: 50,
+        width: "45%",
+        borderRadius: 30,
+        alignItems: "center",
+        justifyContent: "center"
     },
     closeExerciseButtonText: {
         fontSize: 25,

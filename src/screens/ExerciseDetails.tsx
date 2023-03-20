@@ -2,22 +2,35 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import { CategoriesStackParams } from "../../App";
+import { exerciseData } from "../data/exerciseData";
 
 
-export default function ExerciseDetails(){
+export default function ExerciseDetails({ route }:any){
+
+    const {exerciseTitle} = route.params
+
+    const exerciseInfo = exerciseData.filter(
+    exercise => exercise.title === exerciseTitle
+  )[0];
+
+  const exerciseDesc = exerciseInfo.desc
+
 
     const navigation = useNavigation<NativeStackNavigationProp<CategoriesStackParams>>()
 
     return (
         <View style={styles.exerciseContainer}>
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
            
                 <View style={styles.exercisePreview}>
 
                 </View>
                 <View style={styles.exerciseDescriptionContainer}>
-                    <Text style={styles.exerciseTitle}>Title</Text>
-                    <Text style={styles.exerciseDescription}>Description</Text>
+                    <Text style={styles.exerciseTitle}>{exerciseInfo.title}</Text>
+                    {
+                        exerciseDesc.map((desc, index) => <Text style={styles.exerciseDescription}>{desc}</Text>)
+                    }
+                    
                 </View>
                  
             </ScrollView>
@@ -39,7 +52,7 @@ export default function ExerciseDetails(){
 
 const styles = StyleSheet.create({
     exerciseContainer: {
-        padding: 20,
+        padding: 10,
         height: "100%",
     },
     exercisePreview: {
@@ -53,9 +66,10 @@ const styles = StyleSheet.create({
     exerciseTitle: {
         fontSize: 25,
         fontWeight: "bold",
+        color: "black"
     },
     exerciseDescription: {
-        fontSize: 20,
+        fontSize: 16,
         marginVertical: 12,
     },
     closeExerciseViewButtonContainer: {
@@ -64,7 +78,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     closeExerciseButton: {
-        backgroundColor: "blue",
+        backgroundColor: "#27244e",
         height: 50,
         width: "65%",
         borderRadius: 30,

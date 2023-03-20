@@ -3,7 +3,7 @@ export const exerciseData = [
         title: "JUMPING JACKS",
         imagePreview: "",
         category: "ABDOMEN",
-        desc: "Start with your feet together and your arms by your sides, then jump up with your feet apart and your hands overhead.",
+        desc: ["Start with your feet together and your arms by your sides, then jump up with your feet apart and your hands overhead."],
         focusArea: ["shoulders", "Quadricepts", "Chest", "Adductors"],
         restTime: 10,
         duration: 20,

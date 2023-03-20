@@ -26,17 +26,17 @@ import Home from './src/screens/Home';
 // Different Stack Params Definitions
 export type RootStackParams = {
   Training: CategoriesStackParams;
-  Discover: any;
-  Report: any;
-  Settings: any;
+  Discover: undefined;
+  Report: undefined;
+  Settings: undefined;
 }
 
 export type CategoriesStackParams = {
-  Home: any;
-  WorkoutCategories: any;
-  Categories: any;
-  Exercise: any;
-  "Exercise Details": any;
+  Home: undefined;
+  WorkoutCategories: undefined;
+  Categories: undefined;
+  Exercise: undefined;
+  "Exercise Details": undefined;
 }
 
 // Different Stacks

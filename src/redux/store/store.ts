@@ -5,7 +5,7 @@ import workoutCategoriesSlice from '../features/workoutCategoriesSlice';
 export const store = configureStore({
     reducer:{
         exercisereducer : exerciseSlice.reducer,
-        workoutCategoriesreducer : workoutCategoriesSlice.reducer
+        // workoutCategoriesreducer : workoutCategoriesSlice.reducer
     }
 })
 

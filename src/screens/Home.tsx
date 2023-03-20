@@ -28,11 +28,13 @@ const styles = StyleSheet.create({
         height: 80,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#cf3",
-        paddingTop: 14,
+        backgroundColor: "#ff4f5b",
+        paddingTop: 8,
+        
     },
     headerText: {
         fontSize: 20,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        color: "white"
     },
 })

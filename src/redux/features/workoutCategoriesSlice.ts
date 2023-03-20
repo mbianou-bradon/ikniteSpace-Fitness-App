@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store/store";
-import { exerciseData } from "../../../data";
+import { workoutCategoriesData } from "../../data/workoutCategoriesData";
 
-const initialState = exerciseData;
+const initialState = workoutCategoriesData;
 
 export const workoutCategoriesSlice = createSlice({
     name: "workoutCategoriesData",
