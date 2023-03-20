@@ -1,3 +1,4 @@
+import RNSystemSounds from "@dashdoc/react-native-system-sounds";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { current } from "@reduxjs/toolkit";
@@ -15,28 +16,43 @@ export default function Exercise({ route }: any){
     
     const [playlist, setPlaylist] = React.useState<exerciseType[]>(exercisePlaylist)
     const [currentExercise, setCurrentExercise] = React.useState<exerciseType>(exercisePlaylist[0]);
-    const [duration, setDuration] = React.useState<number>(currentExercise.duration || 10);
+    const [duration, setDuration] = React.useState<number>(currentExercise.duration);
     const [restTime, setRestTime] = React.useState<number>(0);
-    // const [isStart, setIsStart] = React.useState<boolean>(false)
+ 
+    let index: number = 1;
+    const handleNextExercise = () => {
+        if (duration === 0 && index < exercisePlaylist.length){
+            setCurrentExercise(exercisePlaylist[index])
+            setDuration(duration);
+
+        }
+        index++;
+    }
 
 
 
     const handleStart = () =>{
-        const interval = setInterval(()=>{
-            setDuration(preDuration => preDuration = currentExercise.duration)
-            setDuration((duration) => {
+        const decDurationId = setInterval(()=>{
+
+            setDuration( duration => {
             if(duration === 0){
-                clearInterval(interval)
+                clearInterval(decDurationId);
+                handleNextExercise;
+                return 0;
             }
             if(duration <= 5){
-                
+                RNSystemSounds.beep(RNSystemSounds.Beeps.Negative);
+            }
+            if(duration > 5){
+                RNSystemSounds.beep();
             }
             return duration - 1;
         })
-        },1000)
-        
+        },1000);
+        // setCurrentExercise(exercisePlaylist[1])
         
     }
+    
 
     return(
         <View style={styles.exerciseContainer}>
