@@ -118,6 +118,12 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+        storeFile file('fitnessApp.keystore')
+        storePassword 'juniorR5'
+        keyAlias 'fitnessAppAlias'
+        keyPassword 'juniorR5'
+        }
     }
     buildTypes {
         debug {
@@ -129,6 +135,7 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
 
