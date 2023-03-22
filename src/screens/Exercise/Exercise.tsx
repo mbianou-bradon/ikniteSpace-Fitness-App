@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { current } from "@reduxjs/toolkit";
 import React, { useEffect } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import { CategoriesStackParams } from "../../../App";
 import { exerciseType } from "../../../dataTypes";
 import { styles } from "./Exercise.Screen.styles";
