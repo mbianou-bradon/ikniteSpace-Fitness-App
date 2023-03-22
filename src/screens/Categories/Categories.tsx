@@ -14,7 +14,7 @@ import {
   View,
 } from 'react-native';
 import {CategoriesStackParams} from '../../../App';
-import CategoriesExercises from '../../components/CategoriesExercises';
+import CategoriesExercises from '../../components/CategoriesExercises/CategoriesExercises';
 import {workoutCategoriesData} from '../../data/workoutCategoriesData';
 
 

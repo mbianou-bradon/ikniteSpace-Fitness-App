@@ -7,7 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import CategoriesOverview from '../../components/CategoriesOverview';
+import CategoriesOverview from '../../components/CatergoriesOverview/CategoriesOverview';
 import {workoutCategoriesData} from '../../data/workoutCategoriesData';
 import {useAppSelector} from '../../redux/store/hooks';
 

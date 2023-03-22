@@ -2,8 +2,8 @@ import { useNavigation } from "@react-navigation/core";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import { CategoriesStackParams } from "../../App";
-import { exerciseType } from "../../dataTypes";
+import { CategoriesStackParams } from "../../../App";
+import { exerciseType } from "../../../dataTypes";
 
 
 

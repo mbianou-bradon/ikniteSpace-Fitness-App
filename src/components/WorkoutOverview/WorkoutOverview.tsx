@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { CategoriesStackParams } from "../../App";
+import { CategoriesStackParams } from "../../../App";
 
 
 export default function WorkoutOverview(){
