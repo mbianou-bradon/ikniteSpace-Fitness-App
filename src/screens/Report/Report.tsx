@@ -1,4 +1,5 @@
-import { ImageBackground, StyleSheet, Text } from "react-native";
+import { ImageBackground, Text } from "react-native";
+import { styles } from "./Report.Screen.styles";
 
 
 export default function Report(){
@@ -9,18 +10,3 @@ export default function Report(){
         </ImageBackground>
     )
 }
-
-const styles = StyleSheet.create({
-    text: {
-        fontSize: 25,
-        fontWeight: "bold"
-    },
-    ImageCover: {
-        height: "100%",
-        width: "100%",
-        alignItems: "center",
-        paddingTop: 20,
-        
-        
-    }
-})

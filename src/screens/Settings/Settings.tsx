@@ -1,4 +1,5 @@
 import { ImageBackground, StyleSheet, Text } from "react-native";
+import { styles } from "./Setings.Screen.styles";
 
 
 export default function Settings(){
@@ -10,17 +11,3 @@ export default function Settings(){
     )
 }
 
-const styles = StyleSheet.create({
-    text: {
-        fontSize: 25,
-        fontWeight: "bold"
-    },
-    ImageCover: {
-        height: "100%",
-        width: "100%",
-        alignItems: "center",
-        paddingTop: 20,
-        
-        
-    }
-})

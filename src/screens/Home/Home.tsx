@@ -1,6 +1,7 @@
 import React from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import WorkoutOverview from "../../components/WorkoutOverview/WorkoutOverview";
+import { styles } from "./Home.Screen.styles";
 
 export default function Home() {
 
@@ -21,20 +22,3 @@ export default function Home() {
         </View>
     )
 }
-
-
-const styles = StyleSheet.create({
-    headerStyles: {
-        height: 80,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#ff4f5b",
-        paddingTop: 8,
-        
-    },
-    headerText: {
-        fontSize: 20,
-        fontWeight: "bold",
-        color: "white"
-    },
-})

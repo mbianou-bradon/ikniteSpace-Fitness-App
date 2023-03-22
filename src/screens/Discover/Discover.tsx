@@ -1,4 +1,5 @@
-import { ImageBackground, StyleSheet, Text } from "react-native";
+import { ImageBackground, Text } from "react-native";
+import { styles } from "./Discover.Screen.styles";
 
 
 export default function Discover(){
@@ -10,17 +11,3 @@ export default function Discover(){
     )
 }
 
-const styles = StyleSheet.create({
-    text: {
-        fontSize: 25,
-        fontWeight: "bold"
-    },
-    ImageCover: {
-        height: "100%",
-        width: "100%",
-        alignItems: "center",
-        paddingTop: 20,
-        
-        
-    }
-})

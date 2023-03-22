@@ -3,6 +3,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
 import { CategoriesStackParams } from "../../../App";
 import { exerciseData } from "../../data/exerciseData";
+import { styles } from "./ExerciseDetails.Screen.styles";
 
 
 export default function ExerciseDetails({ route }:any){
@@ -49,49 +50,6 @@ export default function ExerciseDetails({ route }:any){
     )
 }
 
-
-const styles = StyleSheet.create({
-    exerciseContainer: {
-        padding: 10,
-        height: "100%",
-    },
-    exercisePreview: {
-        height: 350,
-        backgroundColor: "pink",
-        borderRadius: 10,
-    },
-    exerciseDescriptionContainer: {
-        marginVertical: 20,
-    },
-    exerciseTitle: {
-        fontSize: 25,
-        fontWeight: "bold",
-        color: "black"
-    },
-    exerciseDescription: {
-        fontSize: 16,
-        marginVertical: 12,
-    },
-    closeExerciseViewButtonContainer: {
-        marginVertical: 10,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    closeExerciseButton: {
-        backgroundColor: "#27244e",
-        height: 50,
-        width: "65%",
-        borderRadius: 30,
-        alignItems: "center",
-        justifyContent: "center"
-
-    },
-    closeExerciseButtonText: {
-        fontSize: 25,
-        fontWeight: "bold",
-        color: "white"
-    }
-});
 
 
 // Exercise Detail screen gives a detail explanation about an exercise. 

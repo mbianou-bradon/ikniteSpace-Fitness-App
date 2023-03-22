@@ -1,8 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { CategoriesStackParams } from "../../../App";
+import { styles } from "./WorkoutOverview.Component.style";
 
 
 export default function WorkoutOverview(){
@@ -21,26 +22,3 @@ export default function WorkoutOverview(){
         </TouchableOpacity>
     )
 }
-
-
-const styles = StyleSheet.create({
-   
-    workoutContainer:{
-        height: 200,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#ff4f5b",
-        borderRadius: 30,
-    },
-    workoutHeader: {
-        fontSize: 22,
-        fontWeight: "bold",
-        marginBottom: 10,
-        textAlign: "center",
-        color: "white",
-    },
-    workoutDetailsContainer: {
-        flexDirection: "row",
-        gap: 10,
-    }
-})
