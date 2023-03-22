@@ -20,7 +20,7 @@ export default function WorkoutCategories() {
         showsVerticalScrollIndicator={false}
         style={styles.categoriesSubContainer}>
         <View style={styles.coverImageContainer}>
-          <Image source={require('../assets/icons/round-menu.png')} />
+          <Image source={require('../../assets/icons/round-menu.png')} />
         </View>
 
         <View style={styles.categoriesOptionsHeader}>

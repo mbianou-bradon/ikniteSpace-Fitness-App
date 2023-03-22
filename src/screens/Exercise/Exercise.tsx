@@ -2,7 +2,7 @@ import RNSystemSounds from "@dashdoc/react-native-system-sounds";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { current } from "@reduxjs/toolkit";
-import React from "react";
+import React, { useEffect } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { CategoriesStackParams } from "../../../App";
 import { exerciseType } from "../../../dataTypes";
@@ -13,32 +13,34 @@ export default function Exercise({ route }: any){
     const navigation = useNavigation<NativeStackNavigationProp<CategoriesStackParams>>()
 
     const { exercisePlaylist } = route.params;
-    // console.warn(exercisePlaylist)
     
-    const [playlist, setPlaylist] = React.useState<exerciseType[]>(exercisePlaylist)
+    const playlist: exerciseType[] = exercisePlaylist;
     const [currentExercise, setCurrentExercise] = React.useState<exerciseType>(exercisePlaylist[0]);
     const [duration, setDuration] = React.useState<number>(currentExercise.duration);
     const [restTime, setRestTime] = React.useState<number>(0);
+    const [index, setIndex] = React.useState<number>(0);
  
-    let index: number = 1;
-    const handleNextExercise = () => {
-        if (duration === 0 && index < exercisePlaylist.length){
-            setCurrentExercise(exercisePlaylist[index])
-            setDuration(duration);
-
+    
+    const handleNextExercise = (prevIndex: number) => {
+        const playlistLength = playlist.length; 
+        if(prevIndex >= playlistLength -1){
+            setCurrentExercise(exercisePlaylist[0]);
+            return 0;
         }
-        index++;
+        else {
+            setCurrentExercise(exercisePlaylist[prevIndex + 1]);
+            return prevIndex + 1;
+        }
     }
 
 
-
     const handleStart = () =>{
+        setDuration(currentExercise.duration)
         const decDurationId = setInterval(()=>{
-
             setDuration( duration => {
             if(duration === 0){
                 clearInterval(decDurationId);
-                handleNextExercise;
+                setIndex(handleNextExercise(index));
                 return 0;
             }
             if(duration <= 5){
@@ -53,6 +55,11 @@ export default function Exercise({ route }: any){
         // setCurrentExercise(exercisePlaylist[1])
         
     }
+    useEffect(() =>{
+        if(index){
+            handleStart();
+        }},[index]
+    )
     
 
     return(

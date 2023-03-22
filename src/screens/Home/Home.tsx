@@ -11,7 +11,7 @@ export default function Home() {
                 <Text style={styles.headerText}>IkniteSpace Workout</Text>
 
                 <Pressable>
-                    <Image source={require("../assets/icons/round-menu.png")}/>
+                    <Image source={require("../../assets/icons/round-menu.png")}/>
                 </Pressable>
             </View>
 

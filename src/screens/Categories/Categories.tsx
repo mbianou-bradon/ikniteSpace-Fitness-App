@@ -39,7 +39,7 @@ const Categories = ({route}: any) => {
         showsVerticalScrollIndicator={false}
         style={styles.categoriesContainer}>
         <View style={styles.coverImageContainer}>
-          <Image source={require('../assets/icons/round-menu.png')} />
+          <Image source={require('../../assets/icons/round-menu.png')} />
         </View>
 
         <View style={styles.categoriesSubContainer}>

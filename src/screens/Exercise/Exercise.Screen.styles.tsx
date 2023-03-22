@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
         alignItems: "center",
     },
     exerciseTitle: {
-        fontSize: 25,
+        fontSize: 20,
         fontWeight: "bold",
     },
     exerciseDescription: {
