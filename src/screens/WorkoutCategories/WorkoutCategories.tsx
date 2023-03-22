@@ -7,9 +7,9 @@ import {
   Text,
   View,
 } from 'react-native';
-import CategoriesOverview from '../components/CategoriesOverview';
-import {workoutCategoriesData} from '../data/workoutCategoriesData';
-import {useAppSelector} from '../redux/hooks';
+import CategoriesOverview from '../../components/CategoriesOverview';
+import {workoutCategoriesData} from '../../data/workoutCategoriesData';
+import {useAppSelector} from '../../redux/store/hooks';
 
 export default function WorkoutCategories() {
   // const workoutCategories = useAppSelector(state => state.workoutCategoriesreducer.todos)

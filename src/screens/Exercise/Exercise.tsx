@@ -4,8 +4,8 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { current } from "@reduxjs/toolkit";
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { CategoriesStackParams } from "../../App";
-import { exerciseType } from "../../dataTypes";
+import { CategoriesStackParams } from "../../../App";
+import { exerciseType } from "../../../dataTypes";
 
 
 export default function Exercise({ route }: any){

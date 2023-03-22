@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { View, Text, StyleSheet, ScrollView, Pressable } from "react-native";
-import { CategoriesStackParams } from "../../App";
-import { exerciseData } from "../data/exerciseData";
+import { CategoriesStackParams } from "../../../App";
+import { exerciseData } from "../../data/exerciseData";
 
 
 export default function ExerciseDetails({ route }:any){

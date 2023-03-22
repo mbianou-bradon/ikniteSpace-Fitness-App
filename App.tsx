@@ -13,15 +13,15 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import WorkoutCategories from "./src/screens/WorkoutCategories"
-import Categories from './src/screens/Categories';
-import Exercise from './src/screens/Exercise';
+import WorkoutCategories from "./src/screens/WorkoutCategories/WorkoutCategories"
+import Categories from './src/screens/Categories/Categories';
+import Exercise from './src/screens/Exercise/Exercise';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import ExerciseDetails from './src/screens/ExerciseDetails';
-import Report from './src/screens/Report';
-import Settings from './src/screens/Settings';
-import Discover from './src/screens/Discover';
-import Home from './src/screens/Home';
+import ExerciseDetails from './src/screens/ExerciseDetails/ExerciseDetails';
+import Report from './src/screens/Report/Report';
+import Settings from './src/screens/Settings/Settings';
+import Discover from './src/screens/Discover/Discover';
+import Home from './src/screens/Home/Home';
 
 // Different Stack Params Definitions
 export type RootStackParams = {
