@@ -1,9 +1,10 @@
 import { useNavigation } from "@react-navigation/core";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import { CategoriesStackParams } from "../../../App";
 import { exerciseType } from "../../../dataTypes";
+import { styles } from "./CategoriesExercise.Component.style";
 
 
 
@@ -26,34 +27,3 @@ export default function CategoriesExercises( item: exerciseType) {
     )
 }
 
-
-
-const styles = StyleSheet.create({
-   
-    categoriesExerciseContainer: {
-        flexDirection: "row",
-        gap: 10,
-        height: 100,
-        backgroundColor: "white",
-        padding: 10,
-        borderRadius: 10,
-        marginBottom: 20,
-        borderColor: "#ff4f5b",
-        borderWidth: 2,
-    },
-    categoriesExerciseImageContainer: {
-        flex: 1,
-        backgroundColor: "#ff4f5b",
-        borderRadius: 10
-    },
-    categoriesExerciseDetailContainer:{
-        flex: 3,
-
-    },
-    categoriesExerciseTitle: {
-        fontSize: 20, 
-        fontWeight:"bold", 
-        marginBottom: 10,
-        color: "black"
-    }
-})

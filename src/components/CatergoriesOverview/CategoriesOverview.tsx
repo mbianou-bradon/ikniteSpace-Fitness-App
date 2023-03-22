@@ -1,9 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { CategoriesStackParams } from "../../../App";
 import { exerciseType } from "../../../dataTypes";
+import { styles } from "./CategoriesOverview.Component.style";
 
 interface item {
     id: any;
@@ -31,34 +32,5 @@ export default function CategoriesOverview( item:item) {
 }
 
 
-
-const styles = StyleSheet.create({
-   
-    categoriesOverviewContainer: {
-        flexDirection: "row",
-        gap: 10,
-        height: 100,
-        backgroundColor: "white",
-        padding: 10,
-        borderRadius: 10,
-        marginBottom: 20,
-        borderColor: "#ff4f5b",
-        borderWidth: 2,
-    },
-    categoriesOverviewImageContainer: {
-        flex: 1,
-        backgroundColor: "#ff4f5b",
-        borderRadius: 10
-    },
-    categoriesOverviewDetailContainer:{
-        flex: 3,
-
-    },
-    categoriesOverviewTitle: {
-        fontSize: 20, 
-        fontWeight:"bold", 
-        color: "black",
-    }
-})
 
 
