@@ -19,6 +19,7 @@ export default function Exercise({ route }: any){
     const [duration, setDuration] = React.useState<number>(currentExercise.duration);
     const [restTime, setRestTime] = React.useState<number>(0);
     const [index, setIndex] = React.useState<number>(0);
+    const [isResting, setIsResting] = React.useState<boolean>(false)
  
     
     const handleNextExercise = (prevIndex: number) => {
@@ -29,18 +30,18 @@ export default function Exercise({ route }: any){
         }
         else {
             setCurrentExercise(exercisePlaylist[prevIndex + 1]);
+            setDuration(currentExercise.duration)
             return prevIndex + 1;
         }
     }
 
-
     const handleStart = () =>{
-        setDuration(currentExercise.duration)
+        
         const decDurationId = setInterval(()=>{
             setDuration( duration => {
             if(duration === 0){
                 clearInterval(decDurationId);
-                setIndex(handleNextExercise(index));
+                setIsResting(true)
                 return 0;
             }
             if(duration <= 5){
@@ -51,8 +52,7 @@ export default function Exercise({ route }: any){
             }
             return duration - 1;
         })
-        },1000);
-        // setCurrentExercise(exercisePlaylist[1])
+        },1000)
         
     }
     useEffect(() =>{
@@ -60,6 +60,30 @@ export default function Exercise({ route }: any){
             handleStart();
         }},[index]
     )
+
+
+    const handleRest = () =>{
+        setRestTime(currentExercise.restTime)
+        const restDurationId = setInterval(()=>{
+            setRestTime( restduration => {
+            if(restduration === 0){
+                clearInterval(restDurationId);
+                setIndex(handleNextExercise(index));
+                setIsResting(false)
+                return 0;
+            }
+            // if(restduration <= 5){
+            //     RNSystemSounds.beep(RNSystemSounds.Beeps.Negative);
+            // }
+            // if(duration > 5){
+            //     RNSystemSounds.beep();
+            // }
+            return restduration - 1;
+        })
+        },1000)
+        
+    }
+    useEffect(() =>{ if(isResting){handleRest();} },[isResting])
     
 
     return(
@@ -71,11 +95,11 @@ export default function Exercise({ route }: any){
             </View>
             <View>
                 <View style={styles.exerciseDescriptionContainer}>
-                    <Text style={styles.exerciseTitle}>{currentExercise.title}</Text>
+                    <Text style={styles.exerciseTitle}>{isResting? "Currently Resting": currentExercise.title}</Text>
         
                 </View>
                 <View style={styles.exerciseDurationContainer}>
-                    <Text style={styles.exerciseDuration}>{duration}</Text>
+                    <Text style={styles.exerciseDuration}>{isResting? restTime : duration}</Text>
         
                 </View>
 
