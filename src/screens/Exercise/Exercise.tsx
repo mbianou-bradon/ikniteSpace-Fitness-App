@@ -88,7 +88,7 @@ export default function Exercise({ route }: any){
 
     return(
         <View style={styles.exerciseContainer}>
-            <View>
+            {/* <View>
                 <View style={styles.exercisePreview}>
 
                 </View>                 
@@ -119,7 +119,13 @@ export default function Exercise({ route }: any){
                         </View>
                     </Pressable>
                 </View>
+            </View> */}
+            <View>
+                
+
             </View>
+
+            
         </View>
     )
 }
