@@ -3,7 +3,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {current} from '@reduxjs/toolkit';
 import React, {useEffect} from 'react';
-import {Pressable, Text, View} from 'react-native';
+import {Image, Pressable, Text, TouchableOpacity, View} from 'react-native';
 import {CategoriesStackParams} from '../../../App';
 import {exerciseType} from '../../../dataTypes';
 import {styles} from './Exercise.Screen.styles';
@@ -36,6 +36,10 @@ export default function Exercise({route}: any) {
       return prevIndex + 1;
     }
   };
+  const handleNextExerciseFast = () => {
+    setIndex(handleNextExercise(index));
+    setIsResting(false);
+  }
 
   const handleStart = () => {
     const decDurationId = setInterval(() => {
@@ -71,12 +75,6 @@ export default function Exercise({route}: any) {
           setIsResting(false);
           return 0;
         }
-        // if(restduration <= 5){
-        //     RNSystemSounds.beep(RNSystemSounds.Beeps.Negative);
-        // }
-        // if(duration > 5){
-        //     RNSystemSounds.beep();
-        // }
         return restduration - 1;
       });
     }, 1000);
@@ -87,7 +85,7 @@ export default function Exercise({route}: any) {
     }
   }, [isResting]);
 
-  if (isResting) {
+  if (!isResting) {
     return (
       <View style={styles.exerciseContainer}>
         <View>
@@ -130,24 +128,36 @@ export default function Exercise({route}: any) {
         </View>
       </View>
     );
-  } else {
+  } else {/* if (isResting && index + 1 < playlist.length */}{
     return (
       <View style={styles.restTimeContainer}>
-        <View >
-          <View style={styles.exerciseDescription}>
-            <Text style={styles.restTimeText}>Rest Time</Text>
-          </View>
+        <View style={{height:"60%", justifyContent:"center", alignItems:"center"}}>
+            <View style={styles.exerciseDescription}>
+                <Text style={styles.restTimeText}>Rest Time</Text>
+            </View>
 
-          <View style={styles.exerciseDescription}>
-            <Text style={styles.restTimeDuration}>{restTime}</Text>
-          </View>
+            <View style={styles.exerciseDescription}>
+                <Text style={styles.restTimeDuration}>{restTime}</Text>
+            </View>
+            <TouchableOpacity style={styles.skipBtnContainer} onPress={handleNextExerciseFast}>
+                <Text style={styles.skipBtnText}>Skip</Text>
+            </TouchableOpacity>
+
         </View>
-        <View>
-            <View>
-                <Text style={{color: "white", fontSize:50}}>Up Next</Text>
+        <View style={styles.upnextContainer}>
+            <View style={styles.upnextTextContainer}>
+                <Text style={styles.upnextText}>Up Next</Text>
+                <Text style={{color: "white"}}>{index + 1 } / {playlist.length}</Text>
+            </View>
+            <View style={styles.upnextExercise}>
+                <View>
+                    <Text style={styles.upnextExerciseTitle}>{playlist[index + 1].title}</Text>
+                </View>
+                
+                <Text>00:{playlist[index + 1].duration}</Text>
             </View>
             <View>
-                
+                {/* <Image source={require()}/> */}
             </View>
         </View>
       </View>

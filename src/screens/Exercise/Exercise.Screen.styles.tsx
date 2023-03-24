@@ -77,6 +77,47 @@ export const styles = StyleSheet.create({
     },
     restTimeDuration: {
         fontSize: 75,
-        color: "#ff4f5b"
-    }
+        color: "#ff4f5b",
+    },
+    skipBtnContainer:{
+        backgroundColor: "#ff4f5b",
+        paddingHorizontal: 35,
+        paddingVertical: 8,
+        borderWidth: 2,
+        borderRadius: 40,
+    },
+    skipBtnText: {
+        fontSize: 18,
+        color: "white"
+    },
+    upnextContainer: {
+        borderWidth: 2, 
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
+        width: "100%", 
+        backgroundColor:"#ff4f5b", 
+        height:"40%",
+        padding: 10,
+    },
+    upnextTextContainer: {
+        flexDirection: "row",
+        alignItems: "baseline",
+        justifyContent: "space-between",
+        marginBottom: 10
+    },
+    upnextText:{
+        color: "white", 
+        fontSize:25,
+        fontWeight: "bold",
+    },
+    upnextExercise: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "baseline",
+    },
+    upnextExerciseTitle:{
+        fontSize: 18,
+        fontWeight: "800",
+        color: "#fff3f2"
+    },
 });
