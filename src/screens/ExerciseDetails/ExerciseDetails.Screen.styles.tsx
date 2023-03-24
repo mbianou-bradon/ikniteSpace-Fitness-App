@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     },
     exercisePreview: {
         height: 350,
-        backgroundColor: "pink",
+        backgroundColor: "#ff4f5b",
         borderRadius: 10,
     },
     exerciseDescriptionContainer: {

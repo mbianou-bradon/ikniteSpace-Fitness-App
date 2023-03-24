@@ -63,5 +63,20 @@ export const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: "bold",
         color: "white"
+    },
+    restTimeContainer: {
+        height: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#27244e"
+    },
+    restTimeText: {
+        fontSize: 25,
+        fontWeight: "bold",
+        color: "#ff4f5b"
+    },
+    restTimeDuration: {
+        fontSize: 75,
+        color: "#ff4f5b"
     }
 });
