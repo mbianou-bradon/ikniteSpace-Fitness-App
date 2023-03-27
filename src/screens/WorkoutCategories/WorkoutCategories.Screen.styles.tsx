@@ -1,14 +1,15 @@
 import { StyleSheet } from "react-native";
+import { themes } from "../../util/themes/themes";
 
 
 export const styles = StyleSheet.create({
   categoriesContainer: {
     paddingTop: 5,
     paddingHorizontal: 5,
-    // marginBottom: 10,
+ 
   },
   categoriesSubContainer: {
-    // backgroundColor: '#cccfff',
+ 
     backgroundColor: "white",
     padding: 10,
     borderRadius: 10,
@@ -16,7 +17,7 @@ export const styles = StyleSheet.create({
   },
   coverImageContainer: {
     height: 275,
-    backgroundColor: '#ff4f5b',
+    backgroundColor: themes.primary,
     borderRadius: 25,
   },
   categoriesOptionsHeader: {
@@ -25,8 +26,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     height: 50,
     marginVertical: 20,
-
-    // backgroundColor: "blue",
   },
   categoriesOptionsHeaderHeading: {
     fontSize: 25,
@@ -34,7 +33,7 @@ export const styles = StyleSheet.create({
     color: "black"
   },
   categoriesOptionsHeaderMore: {
-    color: '#ff4f5b',
+    color: themes.primary,
     textDecorationLine: 'underline',
   },
 });

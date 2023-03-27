@@ -18,7 +18,6 @@ export default function CategoriesOverview( item:item) {
     const navigation = useNavigation<NativeStackNavigationProp<CategoriesStackParams>>()
     const itemId = item.id
 
-    console.warn("Overview Screen", itemId)
 
     return (
         <TouchableOpacity style={styles.categoriesOverviewContainer} onPress={()=> navigation.push('Categories', { categoryId: itemId})}>

@@ -56,7 +56,7 @@ export const exerciseData = [
     {
         title: "PLANK",
         imagePreview: "",
-        category: "ABDOMENT",
+        category: "ABDOMEN",
         desc: ["Lie on the floor with your toe and forearms on the ground. Keep your body straight annd hold this postion as long as you can.", "This exercise strengthen the abdomen, back and shoulders"],
         focusArea: ["shoulders", "Abs", "Glutes"],
         restTime: 10,

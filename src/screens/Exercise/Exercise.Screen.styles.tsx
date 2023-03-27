@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { themes } from "../../util/themes/themes";
 
 
 export const styles = StyleSheet.create({
@@ -8,7 +9,7 @@ export const styles = StyleSheet.create({
     },
     exercisePreview: {
         height: 350,
-        backgroundColor: "#ff4f5b",
+        backgroundColor: themes.primary,
         borderRadius: 10,
     },
     exerciseDescriptionContainer: {
@@ -31,7 +32,7 @@ export const styles = StyleSheet.create({
     },
     exerciseDuration: {
         fontSize: 75,
-        color: "#27244e",
+        color: themes.seconday,
     },
     closeExerciseViewButtonContainer: {
         borderTopWidth: 2,
@@ -43,7 +44,7 @@ export const styles = StyleSheet.create({
         flexDirection:"row",
     },
     closeExerciseButton: {
-        backgroundColor: "#27244e",
+        backgroundColor: themes.seconday,
         height: 50,
         width: "45%",
         borderRadius: 30,
@@ -68,19 +69,19 @@ export const styles = StyleSheet.create({
         height: "100%",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#27244e"
+        backgroundColor: themes.seconday,
     },
     restTimeText: {
         fontSize: 25,
         fontWeight: "bold",
-        color: "#ff4f5b"
+        color: themes.primary,
     },
     restTimeDuration: {
         fontSize: 75,
-        color: "#ff4f5b",
+        color: themes.primary,
     },
     skipBtnContainer:{
-        backgroundColor: "#ff4f5b",
+        backgroundColor: themes.primary,
         paddingHorizontal: 35,
         paddingVertical: 8,
         borderWidth: 2,
@@ -95,7 +96,7 @@ export const styles = StyleSheet.create({
         borderTopLeftRadius: 15,
         borderTopRightRadius: 15,
         width: "100%", 
-        backgroundColor:"#ff4f5b", 
+        backgroundColor:themes.primary, 
         height:"40%",
         padding: 10,
     },
@@ -118,6 +119,6 @@ export const styles = StyleSheet.create({
     upnextExerciseTitle:{
         fontSize: 18,
         fontWeight: "800",
-        color: "#fff3f2"
+        color: themes.primary,
     },
 });

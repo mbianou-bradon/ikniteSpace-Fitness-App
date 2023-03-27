@@ -42,6 +42,7 @@ export default function Exercise({route}: any) {
   }
 
   const handleStart = () => {
+    console.log("From exercise:", currentExercise.title, duration)
     const decDurationId = setInterval(() => {
       setDuration(duration => {
         if (duration === 0) {
@@ -128,7 +129,7 @@ export default function Exercise({route}: any) {
         </View>
       </View>
     );
-  } else {/* if (isResting && index + 1 < playlist.length */}{
+  } else if (isResting && index + 1 < playlist.length){
     return (
       <View style={styles.restTimeContainer}>
         <View style={{height:"60%", justifyContent:"center", alignItems:"center"}}>
@@ -147,7 +148,7 @@ export default function Exercise({route}: any) {
         <View style={styles.upnextContainer}>
             <View style={styles.upnextTextContainer}>
                 <Text style={styles.upnextText}>Up Next</Text>
-                <Text style={{color: "white"}}>{index + 1 } / {playlist.length}</Text>
+                <Text style={{color: "white"}}>{index + 2 } / {playlist.length}</Text>
             </View>
             <View style={styles.upnextExercise}>
                 <View>

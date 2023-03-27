@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { themes } from "../../util/themes/themes";
 
 
 export const styles = StyleSheet.create({
@@ -11,12 +12,12 @@ export const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 10,
         marginBottom: 20,
-        borderColor: "#ff4f5b",
+        borderColor: themes.primary,
         borderWidth: 2,
     },
     categoriesExerciseImageContainer: {
         flex: 1,
-        backgroundColor: "#ff4f5b",
+        backgroundColor: themes.primary,
         borderRadius: 10
     },
     categoriesExerciseDetailContainer:{

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { themes } from "../../util/themes/themes";
 
 
 export const styles = StyleSheet.create({
@@ -8,14 +9,12 @@ export const styles = StyleSheet.create({
     height: '100%',
   },
   categoriesContainer: {
-    // backgroundColor: '#cccfff',
+
     backgroundColor: 'white',
-    // padding: 20,
     borderRadius: 10,
     paddingBottom: 10,
   },
   categoriesSubContainer: {
-    // backgroundColor: '#cccfff',
     backgroundColor: 'white',
     paddingHorizontal: 10,
     paddingBottm: 20,
@@ -26,7 +25,7 @@ export const styles = StyleSheet.create({
   },
   coverImageContainer: {
     height: 150,
-    backgroundColor: '#ff4f5b',
+    backgroundColor: themes.primary,
     borderRadius: 10,
   },
   categoriesOptionsHeader: {
@@ -42,7 +41,7 @@ export const styles = StyleSheet.create({
     backgroundColor: 'red',
   },
   categoriesOptionsHeaderMore: {
-    color: '#ff4f5b',
+    color: themes.primary,
     textDecorationLine: 'underline',
   },
   startExerciseButtonContainer: {
@@ -51,7 +50,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   startExerciseButton: {
-    backgroundColor: '#27244e',
+    backgroundColor: themes.seconday,
     height: 50,
     width: '65%',
     borderRadius: 30,

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { themes } from "../../util/themes/themes";
 
 
 export const styles = StyleSheet.create({
@@ -7,7 +8,7 @@ export const styles = StyleSheet.create({
         height: 200,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#ff4f5b",
+        backgroundColor: themes.primary,
         borderRadius: 30,
     },
     workoutHeader: {
