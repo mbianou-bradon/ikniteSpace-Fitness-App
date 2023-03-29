@@ -1,5 +1,7 @@
 package com.fitnessmobileapp;
 import android.os.Bundle;
+import com.marcshilling.idletimer.IdleTimerPackage;
+import org.devio.rn.splashscreen.SplashScreen;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -38,4 +40,10 @@ public class MainActivity extends ReactActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(null);
   }
+
+  //  @Override
+  //   protected void onCreate(Bundle savedInstanceState) {
+  //       SplashScreen.show(this);  // here
+  //       super.onCreate(savedInstanceState);
+  //   }
 }

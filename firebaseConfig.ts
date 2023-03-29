@@ -19,7 +19,7 @@ const app = initializeApp(firebaseConfig);
 
 
 // Initializing services
-const db = getFirestore()
+const db = getFirestore(app)
 
 // Collection ref
 const exerciseColRef = collection(db, "exercises");

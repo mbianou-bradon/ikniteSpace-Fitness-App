@@ -1,17 +1,11 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import {
   StatusBar,
 } from 'react-native';
-
+import  Ionic  from "react-native-vector-icons/Ionicons"
+import SplashScreen from 'react-native-splash-screen';
 import WorkoutCategories from "./src/screens/WorkoutCategories/WorkoutCategories"
 import Categories from './src/screens/Categories/Categories';
 import Exercise from './src/screens/Exercise/Exercise';
@@ -21,6 +15,7 @@ import Report from './src/screens/Report/Report';
 import Settings from './src/screens/Settings/Settings';
 import Discover from './src/screens/Discover/Discover';
 import Home from './src/screens/Home/Home';
+import { themes } from './src/util/themes/themes';
 
 // Different Stack Params Definitions
 export type RootStackParams = {
@@ -46,7 +41,26 @@ const RootStack = createBottomTabNavigator<RootStackParams>()
 const  CategoriesStackRoute = (): JSX.Element => {
 
   return (
-      <RootStack.Navigator initialRouteName="Training" screenOptions={{headerShown: false}}>
+      <RootStack.Navigator initialRouteName="Training" ta screenOptions={({route})=> ({
+        tabBarIcon: ({ focused, color, size}) => {
+          let iconName:string;
+          if(route.name === "Training"){
+            iconName = focused ? "timer" : "timer-outline";
+          } else if(route.name === "Discover"){
+            iconName = focused ? "compass" : "compass-outline";
+          } else if(route.name === "Report"){
+            iconName = focused ? "stats-chart" : "stats-chart-outline";
+          } else if(route.name === "Settings"){
+            iconName = focused ? "settings" : "settings-outline";
+          }
+          return <Ionic name={iconName} color={color} size={size}/>
+        },
+        tabBarActiveTintColor: themes.primary,
+        tabBarInactiveTintColor: themes.seconday,
+        
+      })}
+      
+      >
           <RootStack.Screen name="Training" component={Home} />
           <RootStack.Screen name="Discover" component={Discover} />
           <RootStack.Screen name="Report" component={Report} />

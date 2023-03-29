@@ -1,4 +1,6 @@
 import RNSystemSounds from '@dashdoc/react-native-system-sounds';
+import Tts from 'react-native-tts';
+import IdleTimerManager from 'react-native-idle-timer';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {current} from '@reduxjs/toolkit';
@@ -9,10 +11,11 @@ import {exerciseType} from '../../../dataTypes';
 import {styles} from './Exercise.Screen.styles';
 
 export default function Exercise({route}: any) {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<CategoriesStackParams>>();
+  const navigation = useNavigation<NativeStackNavigationProp<CategoriesStackParams>>();
 
   const {exercisePlaylist} = route.params;
+
+  
 
   const playlist: exerciseType[] = exercisePlaylist;
   const [currentExercise, setCurrentExercise] = React.useState<exerciseType>(
@@ -24,11 +27,15 @@ export default function Exercise({route}: any) {
   const [restTime, setRestTime] = React.useState<number>(0);
   const [index, setIndex] = React.useState<number>(0);
   const [isResting, setIsResting] = React.useState<boolean>(false);
+  let nextExercise: exerciseType = playlist[index + 1];
+
+
 
   const handleNextExercise = (prevIndex: number) => {
     const playlistLength = playlist.length;
     if (prevIndex >= playlistLength - 1) {
-      setCurrentExercise(exercisePlaylist[0]);
+      // setCurrentExercise(exercisePlaylist[0]);
+      navigation.goBack();
       return 0;
     } else {
       setCurrentExercise(exercisePlaylist[prevIndex + 1]);
@@ -42,7 +49,17 @@ export default function Exercise({route}: any) {
   }
 
   const handleStart = () => {
+    IdleTimerManager.setIdleTimerDisabled(true);
     console.log("From exercise:", currentExercise.title, duration)
+    
+    Tts.speak(currentExercise.title)
+    setTimeout(() => {
+      currentExercise.desc.forEach( desc => {
+        Tts.speak(desc)
+      });
+    }, 4000); 
+
+    
     const decDurationId = setInterval(() => {
       setDuration(duration => {
         if (duration === 0) {
@@ -50,11 +67,11 @@ export default function Exercise({route}: any) {
           setIsResting(true);
           return 0;
         }
-        if (duration <= 5) {
+        if (duration <= 6) {
           RNSystemSounds.beep(RNSystemSounds.Beeps.Negative);
         }
         if (duration > 5) {
-          RNSystemSounds.beep();
+          RNSystemSounds.beep();          
         }
         return duration - 1;
       });
@@ -89,26 +106,28 @@ export default function Exercise({route}: any) {
   if (!isResting) {
     return (
       <View style={styles.exerciseContainer}>
-        <View>
-          <View style={styles.exercisePreview}></View>
-        </View>
-        <View>
-          <View style={styles.exerciseDescriptionContainer}>
-            <Text
-              style={styles.exerciseTitle}
-              onPress={() =>
-                navigation.push('Exercise Details', {exerciseTitle: currentExercise.title})
-              }>
-              {isResting ? 'Currently Resting' : currentExercise.title}
-            </Text>
+        <View style={styles.exerciseSubBigContainer}>
+          <View>
+            <View style={styles.exercisePreview}></View>
           </View>
-          <View style={styles.exerciseDurationContainer}>
-            <Text style={styles.exerciseDuration}>
-              {isResting ? restTime : duration}
-            </Text>
+          <View>
+            <View style={styles.exerciseDescriptionContainer}>
+              <Text
+                style={styles.exerciseTitle}
+                onPress={() =>
+                  navigation.push('Exercise Details', {exerciseTitle: currentExercise.title})
+                }>
+                {currentExercise.title}
+              </Text>
+            </View>
+            <View style={styles.exerciseDurationContainer}>
+              <Text style={styles.exerciseDuration}>
+                {duration}
+              </Text>
+            </View>
           </View>
         </View>
-        <View>
+        <View style={styles.exerciseSubSmallContainer}>
           <View style={styles.closeExerciseViewButtonContainer}>
             <Pressable
               style={styles.closeExerciseButton}
@@ -152,10 +171,10 @@ export default function Exercise({route}: any) {
             </View>
             <View style={styles.upnextExercise}>
                 <View>
-                    <Text style={styles.upnextExerciseTitle}>{playlist[index + 1].title}</Text>
+                    <Text style={styles.upnextExerciseTitle}>{nextExercise.title}</Text>
                 </View>
                 
-                <Text>00:{playlist[index + 1].duration}</Text>
+                <Text>00:{nextExercise.duration}</Text>
             </View>
             <View>
                 {/* <Image source={require()}/> */}

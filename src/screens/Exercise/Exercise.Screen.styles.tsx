@@ -7,6 +7,9 @@ export const styles = StyleSheet.create({
         padding: 10,
         height: "100%",
     },
+    exerciseSubBigContainer:{
+        height: "85%",
+    },
     exercisePreview: {
         height: 350,
         backgroundColor: themes.primary,
@@ -34,9 +37,14 @@ export const styles = StyleSheet.create({
         fontSize: 75,
         color: themes.seconday,
     },
-    closeExerciseViewButtonContainer: {
+    exerciseSubSmallContainer: {
+        height:"15%",
         borderTopWidth: 2,
-        borderColor: "#ccc",
+        borderBottomWidth: 2,
+        borderColor: "#e4e5e7",
+    },
+    closeExerciseViewButtonContainer: {
+        
         paddingTop: 10,
         marginTop: 10,
         alignItems: "center",
